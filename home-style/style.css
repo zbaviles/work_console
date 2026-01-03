@@ -1,12 +1,11 @@
 body,
-body>.scroll-page {
+body > .scroll-page {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #f4f4f4;
   color: #333;
   overflow: scroll;
-  scrollbar-color: #007bff;
   scrollbar-width: thin;
   scroll-behavior: auto;
 }
@@ -107,28 +106,26 @@ section {
   margin: auto;
 }
 
-@layer {
-  div.card>a {
-    text-decoration: underline;
-  }
+div.card > a {
+  text-decoration: underline;
+}
 
-  div.card>a:last-child::after {
-    content: "\2197";
-  }
+div.card > a:last-child::after {
+  content: "\2197";
+}
 
-  p>a,
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
+p > a,
+a {
+  color: #007bff;
+  text-decoration: none;
+}
 
-  a.external-link::after {
-    content: "\2197";
-    font-size: 0.9em;
-    margin-left: 0.2em;
-    border-left: solid grey 1px;
-    border-bottom: solid grey 1px;
-  }
+a.external-link::after {
+  content: "\2197";
+  font-size: 0.9em;
+  margin-left: 0.2em;
+  border-left: solid grey 1px;
+  border-bottom: solid grey 1px;
 }
 
 .grid {
