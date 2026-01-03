@@ -1,0 +1,4 @@
+.iframe-shell {
+  isolation: isolate;
+  contain: layout print;
+}
