@@ -57,22 +57,7 @@ section h1 a {
   color: #007bff;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card {
-  padding: 1rem;
-}
+@import url('./card-style/style.css') layer(card_style);
 
 dl dd::before {
   content: "• ";
