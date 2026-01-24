@@ -28,11 +28,11 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
-  margin: auto;
   color: white;
   text-shadow: 1px 1px #009879;
   font-size: 20px;
+  max-width: 100%;
+  margin: auto;
 }
 
 h1 {
