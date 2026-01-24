@@ -16,6 +16,9 @@ header {
   background: #333;
   color: white;
   padding: 1rem;
+  height: 80px;
+  padding: 18px 0;
+  margin-bottom: 10px;
 }
 
 nav:after {
@@ -40,9 +43,10 @@ nav {
   position: relative;
   overflow: hidden;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
   color: white;
   text-shadow: 1px 1px #009879;
@@ -80,6 +84,7 @@ nav a:hover {
 
 #hero {
   text-align: center;
+  margin: 0px 0px;
   padding: 5rem 1rem;
   background: #333;
   color: white;
@@ -89,11 +94,52 @@ nav a:hover {
 }
 
 .btn {
-  background: #007bff;
+  width: 10em;
+  position: relative;
+  height: 3.5em;
+  border: 3px ridge #009879;
+  outline: none;
+  background-color: transparent;
   color: white;
+  transition: 1s;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #333333;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.btn::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #333333;
+    transition: 0.5s;
+}
+
+.btn:hover::before, .btn:hover::after {
+    transform: scale(0);
+}
+
+button:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
 }
 
 .scroll-page {
@@ -101,6 +147,7 @@ nav a:hover {
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
+  margin: auto 0px 0px 0px;
 }
 
 /* Base Table Style */
@@ -178,10 +225,11 @@ footer {
   color: white;
 }
 
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-  }
+@media (min-width: 768px) and (max-width: 1024px) {
+    nav {
+        width: 100%;
+        flex-direction: column;
+    }
 }
 
 @keyframes gradient-animation_2 {
