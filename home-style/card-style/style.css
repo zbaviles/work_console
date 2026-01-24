@@ -1,25 +1,18 @@
-@layer card_style {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
 
-	.grid {
-  		display: grid;
-  		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  		gap: 2rem;
-	}
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
 
-	.card {
-  		background: white;
-  		border-radius: 8px;
-  		overflow: hidden;
-  		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	}
-
-	.card img {
-  		width: 80%;
-  		height: auto;
-	}
-
-	.card {
-  		padding: 1rem;
-	}
-
+.card img {
+  width: 80%;
+  height: auto;
 }

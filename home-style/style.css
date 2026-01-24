@@ -1,4 +1,4 @@
-@import url('./card-style/style.css');
+@import url("./card-style/style.css");
 
 body,
 body > .scroll-page {
@@ -129,8 +129,6 @@ a.external-link::after {
   border-left: solid grey 1px;
   border-bottom: solid grey 1px;
 }
-
-@import url('./card-style/style.css') layer(card_style);
 
 footer {
   text-align: center;
