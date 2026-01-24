@@ -18,24 +18,65 @@ header {
   padding: 1rem;
 }
 
+nav:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(110deg, rgba(0, 152, 121, 100%) 0%, rgba(200, 255, 0, 100%) 40%, rgba(200, 255, 0, 100%) 50%, rgba(0, 152, 121, 100%) 60%, rgba(0, 152, 121, 100%) 100%);
+    background-size: 200% 100%;
+    mix-blend-mode: overlay;
+    animation: gradient-animation_2 9.4s linear infinite;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: inset 0 0 20px rgba(0, 118, 250, 0.2);
+    will-change: background-position;
+}
+
 nav {
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   margin: auto;
+  color: white;
+  text-shadow: 1px 1px #009879;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  z-index: 1;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
+/* 1. Generic Link State */
 nav a {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
+
+/* 2. Hover State (Must come AFTER Visited) */
+nav a:hover {
+  color: rgb(200, 255, 0); /* Lime Green */
+  text-decoration: none;
+  /* Optional: Add a transition for a smooth effect */
+  transition: color 0.3s ease;
+}
+
+
 
 #hero {
   text-align: center;
@@ -130,8 +171,6 @@ a.external-link::after {
   border-bottom: solid grey 1px;
 }
 
-@import url('./card-style/style.css') layer(card_style);
-
 footer {
   text-align: center;
   padding: 1rem;
@@ -143,4 +182,18 @@ footer {
   nav {
     flex-direction: column;
   }
+}
+
+@keyframes gradient-animation_2 {
+        0% {
+            /* transform: translateX(-100%);
+            background-position: -200% 0; */
+            background-position: 100% 0;
+        }
+
+        100% {
+            /* transform: translateX(100%);
+            background-position: 200% 0; */
+            background-position: -100% 0;
+        }
 }
