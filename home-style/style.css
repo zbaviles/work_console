@@ -238,6 +238,11 @@ footer {
     width: 100%;
     flex-direction: column;
   }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 @keyframes gradient-animation_2 {
