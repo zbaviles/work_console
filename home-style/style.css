@@ -37,7 +37,6 @@ nav {
 
 h1 {
   font-size: 50px;
-  z-index: 1;
 }
 
 nav ul {
@@ -45,6 +44,9 @@ nav ul {
   display: flex;
   gap: 1rem;
   position: relative;
+}
+
+.banner {
   z-index: 1;
 }
 
