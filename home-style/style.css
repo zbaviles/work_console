@@ -177,14 +177,18 @@ nav:after {
 .academy-table {
   width: 100%;
   border-collapse: collapse;
-  /* Removes gaps between borders */
-  font-family: sans-serif;
+  font-family: var(--table-font, sans-serif);
+  --table-header-bg: #009879;
+  --table-header-color: #fff;
+  --table-row-hover: #f1f1f1;
+  --table-row-even: #f3f3f3;
+  --table-accent: #009879;
 }
 
 /* Header Styling */
 .academy-table thead th {
-  background-color: #009879;
-  color: #ffffff;
+  background-color: var(--table-header-bg);
+  color: var(--table-header-color);
   text-align: left;
   padding: 12px 15px;
 }
@@ -197,18 +201,18 @@ nav:after {
 
 /* Zebra Striping */
 .academy-table tbody tr:nth-child(even) {
-  background-color: #f3f3f3;
+  background-color: var(--table-row-even);
 }
 
 /* Row Hover */
 .academy-table tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: var(--table-row-hover);
   font-weight: 800;
 }
 
 /* Specific Column Targeting: Make the first column (Subject) bold */
 .academy-table tbody td:nth-child(1) {
-  color: #009879;
+  color: var(--table-accent);
   font-weight: bold;
 }
 
