@@ -44,6 +44,20 @@ nav ul {
   z-index: 1;
 }
 
+/* Common deduped styles */
+.common-bg-dark {
+  background: #333 !important;
+}
+.common-color-white {
+  color: white !important;
+}
+.common-pos-rel {
+  position: relative !important;
+}
+.common-no-underline {
+  text-decoration: none !important;
+}
+
 nav a {
   color: white;
   text-decoration: underline;
