@@ -3,9 +3,8 @@ let winHeight = windowHeight;
 function setup() {
       let canvas = createCanvas(0, 0);
       background(0);
-      let heroSection = select("#hero");
-      heroSection.size(175, 150);
-      heroSection.style("background-color", "#333");
+      let heroSection = select(".banner");
+      heroSection.style("background-color", "transparent");
       heroSection.style("z-index", "1"); // Ensure it is above other elements
       heroSection.style("width", "auto");
       heroSection.style("height", "100%");
