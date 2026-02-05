@@ -1,23 +1,76 @@
-let winWidth = windowWidth;
-let winHeight = windowHeight;
-function setup() {
-      let canvas = createCanvas(0, 0);
-      background(0);
-      let heroSection = select("#hero");
-      heroSection.size(175, 150);
-      heroSection.style("background-color", "#333");
-      heroSection.style("z-index", "1"); // Ensure it is above other elements
-      heroSection.style("width", "auto");
-      heroSection.style("height", "100%");
-      canvas.parent(heroSection);
-}
+let clockRadius = 150;
+let centerX, centerY;
+let goldfishX, goldfishY, goldfishAngle;
+let inputField, submitButton, outputText;
 
-function windowResized() {
-      winWidth = windowWidth;
-      winHeight = windowHeight;
-      resizeCanvas(winWidth, winHeight);
+/**
+ * Sets up the initial canvas and environment for the sketch.
+ * - Creates a canvas with the width of the window and a fixed height of 200 pixels.
+ * - Attaches the canvas to the hero section of the webpage.
+ * - Styles the canvas to ensure proper positioning and layering.
+ * - Sets the background color to sky blue.
+ * - Initializes the clock center and goldfish position with random values.
+ */
+function setup() {
+      let block = createDiv("");
+      let heroSection = select("#hero"); // Select the hero section
+      let canvas = createCanvas(windowWidth, 175); // Create a canvas
+      block.parent(heroSection); // Attach the div to the hero section
+      canvas.parent(block); // Attach the canvas to the block
+      canvas.style("z-index", "1"); // Set the canvas z-index to ensure it appears above other elements
+      canvas.style("position", "relative"); // Ensure the canvas is positioned correctly
+      canvas.style("top", "0"); // Align the canvas to the top of the block
+      canvas.style("left", "0"); // Align the canvas to the left of the block
+      canvas.style("right", "0"); // Align the canvas to the right of the block
+      canvas.style("bottom", "0"); // Align the canvas to the bottom of the block
+      background(135, 206, 235); // Sky blue background
+
+      // Initialize clock center
+      centerX = width / 2;
+      centerY = height / 2;
+      angleMode(DEGREES);
+
+      // Initialize goldfish position
+      goldfishX = random(width);
+      goldfishY = random(height);
+      goldfishAngle = random(360);
 }
 
 function draw() {
-      // Add your drawing code here
+      background(135, 206, 235); // Clear background
+
+      // Display 12-hour digital clock
+      let h = hour() % 12 || 12; // Convert to 12-hour format
+      let m = nf(minute(), 2);
+      let s = nf(second(), 2);
+      let period = hour() >= 12 ? "PM" : "AM"; // Determine AM/PM
+      textSize(48);
+      textAlign(CENTER, CENTER);
+      fill(0);
+      text(`${h}:${m}:${s} ${period}`, centerX, centerY);
+
+      // Draw goldfish
+      noStroke();
+      fill(255, 165, 0);
+      ellipse(goldfishX, goldfishY, 20, 10);
+      triangle(
+            goldfishX - 10 * cos(goldfishAngle),
+            goldfishY - 10 * sin(goldfishAngle),
+            goldfishX - 20 * cos(goldfishAngle + 30),
+            goldfishY - 20 * sin(goldfishAngle + 30),
+            goldfishX - 20 * cos(goldfishAngle - 30),
+            goldfishY - 20 * sin(goldfishAngle - 30),
+      );
+
+      // Update goldfish position
+      goldfishX += cos(goldfishAngle) * 2;
+      goldfishY += sin(goldfishAngle) * 2;
+
+      // Bounce goldfish off walls
+      if (goldfishX < 0 || goldfishX > width) {
+            goldfishAngle = 180 - goldfishAngle;
+      }
+      if (goldfishY < 0 || goldfishY > height) {
+            goldfishAngle = -goldfishAngle;
+      }
 }
