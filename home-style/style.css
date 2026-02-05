@@ -173,13 +173,12 @@ section {
       color: white;
 }
 
-/* General Section Styles
 section {
       padding: 4rem 1rem;
       max-width: 1000px;
       margin: auto;
       text-align: center;
-} */
+}
 
 /* Hero Section */
 .btn {

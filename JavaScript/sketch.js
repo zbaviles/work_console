@@ -17,7 +17,7 @@ function setup() {
       let canvas = createCanvas(windowWidth, 175); // Create a canvas
       block.parent(heroSection); // Attach the div to the hero section
       canvas.parent(block); // Attach the canvas to the block
-      canvas.style("z-index", "1"); // Set the canvas z-index to ensure it appears above other elements
+      block.style("z-index", "1"); // Set the canvas z-index to ensure it appears above other elements
       canvas.style("position", "relative"); // Ensure the canvas is positioned correctly
       canvas.style("top", "0"); // Align the canvas to the top of the block
       canvas.style("left", "0"); // Align the canvas to the left of the block
@@ -37,7 +37,7 @@ function setup() {
 }
 
 function draw() {
-      background(135, 206, 235); // Clear background
+      clear(); // Clear the canvas with transparency
 
       // Display 12-hour digital clock
       let h = hour() % 12 || 12; // Convert to 12-hour format
@@ -51,7 +51,7 @@ function draw() {
 
       // Draw goldfish
       noStroke();
-      fill(255, 165, 0);
+      fill(255, 165, 0, 127); // Add alpha value for transparency
       ellipse(goldfishX, goldfishY, 20, 10);
       triangle(
             goldfishX - 10 * cos(goldfishAngle),
