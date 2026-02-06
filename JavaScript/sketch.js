@@ -32,8 +32,8 @@ function setup() {
 
       // Initialize goldfish position
       goldfishX = random(width);
-      goldfishY = random(height);
-      goldfishAngle = random(360);
+      goldfishY = random(height / 2);
+      goldfishAngle = random(270);
 }
 
 function draw() {
@@ -46,12 +46,12 @@ function draw() {
       let period = hour() >= 12 ? "PM" : "AM"; // Determine AM/PM
       textSize(48);
       textAlign(CENTER, CENTER);
-      fill(0);
+      fill(200,255,0, 170);
       text(`${h}:${m}:${s} ${period}`, centerX, centerY);
 
       // Draw goldfish
       noStroke();
-      fill(255, 165, 0, 127); // Add alpha value for transparency
+      fill(255, 165, 0);
       ellipse(goldfishX, goldfishY, 20, 10);
       triangle(
             goldfishX - 10 * cos(goldfishAngle),
