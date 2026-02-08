@@ -1,4 +1,3 @@
-let clockRadius = 150;
 let centerX, centerY;
 let goldfishX, goldfishY, goldfishAngle;
 let inputField, submitButton, outputText;
@@ -17,13 +16,6 @@ function setup() {
       let canvas = createCanvas(windowWidth, 175); // Create a canvas
       block.parent(heroSection); // Attach the div to the hero section
       canvas.parent(block); // Attach the canvas to the block
-      block.style("z-index", "1"); // Set the canvas z-index to ensure it appears above other elements
-      canvas.style("position", "relative"); // Ensure the canvas is positioned correctly
-      canvas.style("top", "0"); // Align the canvas to the top of the block
-      canvas.style("left", "0"); // Align the canvas to the left of the block
-      canvas.style("right", "0"); // Align the canvas to the right of the block
-      canvas.style("bottom", "0"); // Align the canvas to the bottom of the block
-      background(135, 206, 235); // Sky blue background
 
       // Initialize clock center
       centerX = width / 2;
@@ -32,7 +24,7 @@ function setup() {
 
       // Initialize goldfish position
       goldfishX = random(width);
-      goldfishY = random(height / 2);
+      goldfishY = random(height) / 2 + height / 4; // Start in the middle vertical area
       goldfishAngle = random(270);
 }
 

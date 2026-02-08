@@ -5,15 +5,14 @@ body > .scroll-page {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
-      color: #333;
+      background: linear-gradient(90deg, #4f4f4f, #5a5a5a);
       overflow: scroll;
       scrollbar-width: thin;
       scroll-behavior: auto;
 }
 
 header {
-      background: #333;
+      background: #444;
       color: white;
       padding: 1rem;
       height: 80px;
@@ -53,7 +52,7 @@ nav ul {
 
 /* Common deduped styles */
 .common-bg-dark {
-      background: #333 !important;
+      background: #444 !important;
 }
 .common-color-white {
       color: white !important;
@@ -116,7 +115,7 @@ section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: centerc;
+      justify-content: center;
       background: linear-gradient(135deg, #009879, #333);
       color: white;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -236,14 +235,18 @@ section {
       margin-top: auto;
 }
 
+.scroll-page section {
+      color: white;
+}
+
 /* Base Table Style */
 .academy-table {
       width: 100%;
       border-collapse: collapse;
       font-family: var(--table-font, sans-serif);
       --table-header-bg: #009879;
-      --table-header-color: #fff;
-      --table-row-hover: #f1f1f1;
+      --table-header-color: light-dark(#f4f4f4, black);
+      --table-row-hover: light-dark(black, white);
       --table-row-even: #f3f3f3;
       --table-accent: #009879;
 }
@@ -262,13 +265,18 @@ section {
       border-bottom: 1px solid #dddddd;
 }
 
-/* Zebra Striping */
+.academy-table tr,
+.academy-table tr td {
+      color: light-dark(white, black);
+}
+/* Zebra Striping
 .academy-table tbody tr:nth-child(even) {
       background-color: var(--table-row-even);
-}
+} */
 
 /* Row Hover */
-.academy-table tbody tr:hover {
+.academy-table tbody tr:hover,
+.academy-table tbody tr td:hover {
       background-color: var(--table-row-hover);
       font-weight: 800;
 }
@@ -308,11 +316,13 @@ a.external-link::after {
       border-bottom: solid grey 1px;
 }
 
+section#contact {color: #f4f4f4;}
+
 footer {
       text-align: center;
       padding: 1rem;
-      background: #333;
-      color: white;
+      background: #4f4f4f;
+      color: #f4f4f4;
 }
 
 @media screen and (min-width: 360px) and (max-width: 428px) {
