@@ -6,9 +6,16 @@ body > .scroll-page {
       margin: 0;
       padding: 0;
       background: linear-gradient(90deg, #4f4f4f, #5a5a5a);
-      overflow: scroll;
+      overflow-y: auto;
+      overflow-x: hidden;
       scrollbar-width: thin;
       scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+      box-sizing: border-box;
 }
 
 header {
@@ -64,13 +71,17 @@ nav ul {
       text-decoration: none !important;
 }
 
-/* 1. Generic Link State */
-nav a {
+/* LVHA order: :link, :visited, :hover, :active */
+nav a:link {
       color: white;
       text-decoration: underline;
 }
 
-/* 2. Hover State (Must come AFTER Visited) */
+nav a:visited {
+      color: white;
+      text-decoration: underline;
+}
+
 nav a:hover {
       color: rgb(200, 255, 0); /* Lime Green */
       text-decoration: none;
@@ -78,7 +89,13 @@ nav a:hover {
       transition: color 0.3s ease;
 }
 
-nav:after {
+nav a:active {
+      color: rgb(200, 255, 0);
+      text-decoration: none;
+}
+
+nav::after {
+      color: inherit;
       content: "";
       position: absolute;
       width: 100%;
@@ -101,6 +118,22 @@ nav:after {
       -webkit-backdrop-filter: blur(5px);
       box-shadow: inset 0 0 20px rgba(0, 118, 250, 0.2);
       will-change: background-position;
+}
+
+nav h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: inherit;
+}
+
+nav a {
+      position: relative;
+      z-index: 1;
+}
+
+nav label input {
+      display: none;
 }
 
 /* General Section Styles */
@@ -159,7 +192,7 @@ section {
 }
 #hero {
       /* display: -webkit-inline-grid;
-      display: -ms-inline-grid; */
+      display: -ms-inline-grid;  */
       float: initial;
       text-align: center;
       color: white;
@@ -230,6 +263,7 @@ section {
 .scroll-page {
       height: 300px;
       overflow-y: auto;
+      overflow-x: hidden;
       border: 1px solid #ccc;
       padding: 10px;
       margin-top: auto;
@@ -316,7 +350,9 @@ a.external-link::after {
       border-bottom: solid grey 1px;
 }
 
-section#contact {color: #f4f4f4;}
+section#contact {
+      color: #f4f4f4;
+}
 
 footer {
       text-align: center;
@@ -325,14 +361,145 @@ footer {
       color: #f4f4f4;
 }
 
+/* Hide nav label input to reduce repeated settings */
+nav input {
+      display: none;
+}
+
 @media screen and (min-width: 360px) and (max-width: 428px) {
+      #hero,
+      section,
+      .scroll-page,
+      header,
+      nav {
+            max-width: 100%;
+      }
+
       .banner {
             font-size: 1.1em;
       }
 
-      nav ul {
+      nav ul ul {
             gap: 0.3rem;
             padding: 0 20px;
+            display: none;
+            position: static;
+      }
+
+      nav > ul {
+            padding: 0;
+      }
+
+      nav > ul > li {
+            float: none;
+            margin-top: 10px;
+      }
+
+      nav ul li:hover {
+            float: none; /* Prevent floating on mobile devices */
+      }
+
+      nav ul li a {
+            display: inline-block;
+            color: #fff4f4;
+            padding: 10px 20px;
+            text-decoration: none;
+            width: auto;
+            position: relative;
+      }
+
+      nav ul li a:visited {
+            color: #fff4f4;
+      }
+
+      nav ul li a:hover {
+            background: rgb(200, 255, 0);
+      }
+
+      #check:checked ~ ul {
+            display: block;
+      }
+
+      nav ul li a {
+            width: auto;
+            display: block;
+            margin: 8px 10px;
+            padding: 8px 15px;
+            border: 1px solid #009879;
+      }
+
+      nav ul li a:hover {
+            background: rgb(200, 255, 0);
+      }
+
+      nav label[aria-haspopup="true"]::after {
+            display: none;
+      }
+
+      input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            display: none;
+            visibility: hidden;
+      }
+
+      .bar {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            width: 50px;
+            height: 40px;
+      }
+
+      .bar span {
+            position: absolute;
+            width: 45px;
+            height: 7px;
+            background: #f4f4f4;
+            border-radius: 100px;
+            display: inline-block;
+            transition: 0.3s ease;
+            left: 0;
+      }
+
+      .bar span.top {
+            top: 0;
+      }
+
+      .bar span.middle {
+            top: 17px;
+      }
+
+      .bar span.bottom {
+            bottom: 0;
+      }
+
+      #check:checked + .bar .top {
+            transform: rotate(45deg);
+            transform-origin: top left;
+            width: 48px;
+            left: 5px;
+      }
+
+      #check:checked + .bar .bottom {
+            transform: rotate(-45deg);
+            transform-origin: top left;
+            width: 48px;
+            bottom: -1px;
+            box-shadow: 0 0 10px rgb(200, 255, 0);
+      }
+
+      #check:checked + .bar .middle {
+            transform: translateX(-20px);
+            opacity: 0;
+      }
+}
+
+@media screen and (max-width: 428px) {
+      .academy-table {
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
       }
 }
 
@@ -343,6 +510,10 @@ footer {
 
       nav ul {
             gap: 0.4rem;
+      }
+
+      nav input {
+            display: none;
       }
 }
 
@@ -357,6 +528,10 @@ footer {
 
       .banner {
             font-size: 20px;
+      }
+
+      nav input {
+            display: none;
       }
 }
 
