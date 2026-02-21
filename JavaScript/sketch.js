@@ -41,7 +41,7 @@ function draw() {
       let period = hour() >= 12 ? "PM" : "AM"; // Determine AM/PM
       textSize(48);
       textAlign(CENTER, CENTER);
-      fill(200,255,0, 170);
+      fill(200, 255, 0, 170);
       text(`${h}:${m}:${s} ${period}`, centerX, centerY);
 
       // Draw goldfish
