@@ -39,6 +39,7 @@ nav {
       font-size: 20px;
       max-width: 100%;
       margin: auto;
+      user-select: none;
 }
 
 h1 {
@@ -158,6 +159,7 @@ section {
             Sets the width of the element to adjust automatically 
             based on its content and container constraints.
       */
+      user-select: none;
 }
 
 #hero h1 {
@@ -199,6 +201,7 @@ section {
       box-shadow: 1px 10px 10px grey;
       max-width: 1600px;
       min-width: auto;
+      user-select: none;
 }
 
 /* .index {
@@ -352,6 +355,7 @@ a.external-link::after {
 
 section#contact {
       color: #f4f4f4;
+      user-select: none;
 }
 
 footer {
@@ -359,6 +363,7 @@ footer {
       padding: 1rem;
       background: #4f4f4f;
       color: #f4f4f4;
+      user-select: none;
 }
 
 /* Hide nav label input to reduce repeated settings */
