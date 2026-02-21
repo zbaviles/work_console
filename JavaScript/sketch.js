@@ -16,6 +16,9 @@ function setup() {
       let canvas = createCanvas(windowWidth, 175); // Create a canvas
       block.parent(heroSection); // Attach the div to the hero section
       canvas.parent(block); // Attach the canvas to the block
+      canvas.attribute("aria-hidden", "true");
+      canvas.attribute("role", "presentation");
+      canvas.attribute("tabindex", "-1");
 
       // Initialize clock center
       centerX = width / 2;

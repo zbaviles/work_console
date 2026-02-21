@@ -19,24 +19,45 @@
       </head>
 
       <body>
+            <a class="skip-link" href="#main-content">Skip to main content</a>
             <header>
-                  <nav>
+                  <nav aria-label="Primary">
                         <h1 class="banner">Everardo Aviles</h1>
                         <ul class="banner">
                               <li>
-                                    <input type="checkbox" id="check" />
+                                    <input
+                                          type="checkbox"
+                                          id="check"
+                                          aria-label="Toggle navigation menu"
+                                          aria-controls="primary-menu"
+                                          aria-expanded="false"
+                                    />
                                     <label
                                           class="bar"
                                           for="check"
-                                          aria-haspopup="true"
+                                          role="button"
+                                          tabindex="0"
+                                          aria-controls="primary-menu"
+                                          aria-expanded="false"
                                     >
-                                          <span class="top"></span>
-                                          <span class="middle"></span>
-                                          <span class="bottom"></span>
+                                          <span
+                                                class="top"
+                                                aria-hidden="true"
+                                          ></span>
+                                          <span
+                                                class="middle"
+                                                aria-hidden="true"
+                                          ></span>
+                                          <span
+                                                class="bottom"
+                                                aria-hidden="true"
+                                          ></span>
                                     </label>
-                                    <ul>
+                                    <ul id="primary-menu">
                                           <li class="nav-item">
-                                                <a href="#about" target="_self">About</a>
+                                                <a href="#about" target="_self"
+                                                      >About</a
+                                                >
                                           </li>
                                           <li class="nav-item">
                                                 <a
@@ -57,114 +78,122 @@
                         </ul>
                   </nav>
             </header>
-            <section id="hero">
-                  <h2 class="index">Full-Stack Developer zbaviles</h2>
-                  <p class="index">
-                        Building scalable apps with React, Node.js, Apache, and
-                        more.
-                  </p>
-                  <a href="#projects" class="btn index">View Projects</a>
-            </section>
-
-            <div class="scroll-page" id="scroll-page">
-                  <section id="about">
-                        <h2>About Me</h2>
-                        <p>
-                              Hi! I'm a passionate full-stack developer who
-                              loves creating end-to-end solutions.
-                              <a
-                                    class="external-link"
-                                    href="./about/index.html"
-                                    target="_top"
-                                    >Career Portfolio</a
-                              >
+            <main id="main-content">
+                  <section id="hero">
+                        <h2 class="index">Full-Stack Developer zbaviles</h2>
+                        <p class="index">
+                              Building scalable apps with React, Node.js,
+                              Apache, and more.
                         </p>
-                        <table class="academy-table">
-                              <thead>
-                                    <tr>
-                                          <th scope="col">Goals</th>
-                                          <th scope="col">Hobbies</th>
-                                          <th scope="col">Academies</th>
-                                    </tr>
-                              </thead>
-                              <tbody>
-                                    <tr>
-                                          <th scope="col">Literature.</th>
-                                          <td>Reading.</td>
-                                          <td>None</td>
-                                    </tr>
-                                    <tr>
-                                          <th scope="col">Mathimatics.</th>
-                                          <td>Coding.</td>
-                                          <td>None</td>
-                                    </tr>
-                                    <tr>
-                                          <th scope="col">Science</th>
-                                          <td>STEM.</td>
-                                          <td>None</td>
-                                    </tr>
-                              </tbody>
-                        </table>
+                        <a href="#projects" class="btn index">View Projects</a>
                   </section>
 
-                  <section id="projects">
-                        <h2>Projects</h2>
-                        <div class="grid">
-                              <!-- Repeat this card for each project -->
-                              <div class="card">
-                                    <img
-                                          loading="lazy"
-                                          src="./assets/400x300.PNG"
-                                          alt="Project screenshot"
-                                          width="400"
-                                          height="300"
-                                    />
-                                    <h3>
-                                          Shopline e-commerce (e.g., E-Commerce
-                                          App)
-                                    </h3>
-                                    <p>
-                                          Zero-code solution Spot Shopping, Spy
-                                          Shopping app with user auth, payments,
-                                          etc.
-                                    </p>
-                                    <p><strong>Tech:</strong> Web Browser</p>
+                  <div class="scroll-page" id="scroll-page">
+                        <section id="about">
+                              <h2>About Me</h2>
+                              <p>
+                                    Hi! I'm a passionate full-stack developer
+                                    who loves creating end-to-end solutions.
                                     <a
-                                          href="https://spotshopping.myshopline.com"
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          >Spot Shopping</a
+                                          class="external-link"
+                                          href="./about/index.html"
+                                          target="_top"
+                                          >Career Portfolio</a
                                     >
-                                    |
-                                    <a
-                                          href="https://spyshopping.myshopline.com"
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          >Spy Shopping</a
-                                    >
+                              </p>
+                              <table class="academy-table">
+                                    <thead>
+                                          <tr>
+                                                <th scope="col">Goals</th>
+                                                <th scope="col">Hobbies</th>
+                                                <th scope="col">Academies</th>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr>
+                                                <th scope="row">Literature.</th>
+                                                <td>Reading.</td>
+                                                <td>None</td>
+                                          </tr>
+                                          <tr>
+                                                <th scope="row">
+                                                      Mathimatics.
+                                                </th>
+                                                <td>Coding.</td>
+                                                <td>None</td>
+                                          </tr>
+                                          <tr>
+                                                <th scope="row">Science</th>
+                                                <td>STEM.</td>
+                                                <td>None</td>
+                                          </tr>
+                                    </tbody>
+                              </table>
+                        </section>
+
+                        <section id="projects">
+                              <h2>Projects</h2>
+                              <div class="grid">
+                                    <!-- Repeat this card for each project -->
+                                    <div class="card">
+                                          <img
+                                                loading="lazy"
+                                                src="./assets/400x300.PNG"
+                                                alt="Spot Shopping and Spy Shopping storefront preview"
+                                                width="400"
+                                                height="300"
+                                          />
+                                          <h3>
+                                                Shopline e-commerce (e.g.,
+                                                E-Commerce App)
+                                          </h3>
+                                          <p>
+                                                Zero-code solution Spot
+                                                Shopping, Spy Shopping app with
+                                                user auth, payments, etc.
+                                          </p>
+                                          <p>
+                                                <strong>Tech:</strong> Web
+                                                Browser
+                                          </p>
+                                          <a
+                                                href="https://spotshopping.myshopline.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >Spot Shopping</a
+                                          >
+                                          |
+                                          <a
+                                                href="https://spyshopping.myshopline.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >Spy Shopping</a
+                                          >
+                                    </div>
+                                    <!-- Add more cards -->
                               </div>
-                              <!-- Add more cards -->
-                        </div>
+                        </section>
+                  </div>
+                  <section id="contact">
+                        <h2>Contact</h2>
+                        <p>
+                              Email: everardobuild@outlook.com | GitHub:
+                              <a
+                                    href="https://github.com/zbaviles"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="external-link"
+                                    >zbaviles</a
+                              >
+                              | LinkedIn: Everardo Aviles
+                        </p>
                   </section>
-            </div>
-            <section id="contact">
-                  <h2>Contact</h2>
-                  <p>
-                        Email: everardobuild@outlook.com | GitHub:
-                        <a
-                              href="https://github.com/zbaviles"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="external-link"
-                              >zbaviles</a
-                        >
-                        | LinkedIn: Everardo Aviles
-                  </p>
-            </section>
+            </main>
 
             <footer>
                   <p>&copy; 2026 Everardo Aviles</p>
             </footer>
+            <script src="JavaScript/accessibility.js"></script>
             <script src="JavaScript/sketch.js"></script>
       </body>
 </html>
